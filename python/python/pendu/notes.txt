@@ -1,0 +1,40 @@
+pendu
+mot 8 lettres
+
+input nom
+score =0 
+input letter
+    try lettre
+trialNb = 8
+while trialNb > 0
+    input trial
+    trialNb --
+        si trial in word dispay lettres
+    si mot trouvé , score += trianRemaining
+    
+    
+donnes.py
+    liste de mots
+    nombre de chances (8    )
+fonctions.py    
+    on y met les fonctions
+pendy.py contien le jeu pendu (main)
+
+enregister dans scores
+   dico  nom:score
+   gérer :
+    fichier n'existe pas
+    joueur n'existe pas, on le crée avec score 0
+    
+
+pendu.py
+    Load data
+    saisirNom ()
+        LOad / save dico to/from score
+    loadWord ()
+    while 
+        input letter   
+            try
+        isLetterExist
+            list ..parcour et affiche
+        
