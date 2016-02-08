@@ -15,16 +15,25 @@ class ArrangedDico:
         ret_str = ret_str[:-1]
         ret_str+= "}"
         return ret_str
-    def __delitem__(self,value):
-       idx = self.dicoKey.index(value)
+    def __delitem__(self,name):
+       idx = self.dicoKey.index(name)
        del self.dicoKey[idx]
        del self.dicoValues[idx]
-       print ("{} is deleted".format(value))
-        
+       print ("{} is deleted".format(name))
+    def __getitem__(self,name):
+       idx = self.dicoKey.index(name)
+       return self.dicoValues[idx]
+
 legumes= {"oranges":22,"fraise":10}
 monDico = ArrangedDico(oranges=25, pommes=32)
 monDico = ArrangedDico(**legumes)
 
 print (monDico)
 del monDico["oranges"]
+print (" *** del testing: ",monDico)
+
+monDico = ArrangedDico(**legumes)
+print (" *** getitem testing: ")
 print (monDico)
+a=monDico["oranges"]
+print (a)
