@@ -155,3 +155,7 @@ not Explored:
       isssubclass(sousclasse,cls)
       --> def __subclasscheck__(cls,sousclasse):
 
+copy list:
+   import copy
+   list2 = copy.copy(list1)
+
