@@ -1,6 +1,6 @@
 import copy
 class ArrangedDico:
-    def __init__(self, **articles):
+    def __init__(self, base={}, **articles):
         self.dicoKey = []
         self.dicoValues = []
         if (articles is not None):
@@ -82,7 +82,30 @@ class ArrangedDico:
                 nouveau[key]=val
         return nouveau
 
+
 if __name__ == '__main__':
+    fruits = ArrangedDico()
+    fruits["pommes"]=52
+    fruits["poires"]=34
+    fruits["prune"]=128
+    fruits["melon"]=15
+    print(fruits)
+    fruits.sort()
+    print(fruits)
+    legumes=ArrangedDico(carotte=26,haricot=48)
+    print(legumes)
+    print (len (legumes))
+    legumes.reverse()
+    print(legumes)
+    fruits=fruits+legumes
+    print(fruits)
+    del fruits["haricot"]
+    print("haricot" in fruits)
+    for cle in legumes:
+        print (cle)
+    print(legumes.keys())
+
+if __name__ == '__main2__':
     legumes= {"oranges":22,"fraise":10}
     fruits={"patates":3,"tomates":8}
     monDico = ArrangedDico(oranges=25, pommes=32)
