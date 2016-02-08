@@ -17,7 +17,9 @@ class ArrangedDico:
         return ret_str
     def __delitem__(self,value):
        idx = self.dicoKey.index(value)
-       print (idx)
+       del self.dicoKey[idx]
+       del self.dicoValues[idx]
+       print ("{} is deleted".format(value))
         
 legumes= {"oranges":22,"fraise":10}
 monDico = ArrangedDico(oranges=25, pommes=32)
@@ -26,4 +28,3 @@ monDico = ArrangedDico(**legumes)
 print (monDico)
 del monDico["oranges"]
 print (monDico)
-
