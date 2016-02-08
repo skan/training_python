@@ -17,6 +17,7 @@ class ArrangedDico:
         return ret_str
     def __delitem__(self,value):
        idx = self.dicoKey.index(value)
+       print (idx)
         
 legumes= {"oranges":22,"fraise":10}
 monDico = ArrangedDico(oranges=25, pommes=32)
