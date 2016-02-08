@@ -44,6 +44,14 @@ class ArrangedDico:
             sortedVal.append(self.dicoValues[idx])
         self.dicoKey = copy.copy(sortedKey)
         self.dicoValues = copy.copy(sortedVal)
+    def reverse(self):
+        sortedVal = []
+        sortedKey = sorted(self.dicoKey,reverse=True)
+        for element in sortedKey:
+            idx = self.dicoKey.index(element)
+            sortedVal.append(self.dicoValues[idx])
+        self.dicoKey = copy.copy(sortedKey)
+        self.dicoValues = copy.copy(sortedVal)
 
 if __name__ == '__main__':
     legumes= {"oranges":22,"fraise":10}
@@ -55,7 +63,7 @@ if __name__ == '__main__':
     print (" *** del testing: ",monDico)
 
     monDico = ArrangedDico(**legumes)
-    print (" *** getitem testing: ")
+    print (" *** getitem testing: ", end=" ")
     print (monDico)
     a=monDico["oranges"]
     print (a)
@@ -68,6 +76,10 @@ if __name__ == '__main__':
     print (" *** __contains__: ")
     a="bananes" in monDico
     print(a)
+    print (" *** len: ",len(monDico))
     print (" *** sort: ")
     monDico.sort()
+    print (monDico)
+    print (" *** reverse: ")
+    monDico.reverse()
     print (monDico)
