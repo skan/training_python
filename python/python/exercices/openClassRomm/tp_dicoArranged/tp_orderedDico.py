@@ -1,4 +1,4 @@
-
+import copy
 class ArrangedDico:
     def __init__(self, **articles):
         self.dicoKey = []
@@ -30,23 +30,44 @@ class ArrangedDico:
         else:
            self.dicoValues.append(value)
            self.dicoKey.append(name)
+    def __contains__(self,name):
+        if (name in self.dicoKey):
+            return True
+    def __len__(self):
+        return len(self.dicoKey)
+    def sort(self):
+        sortedVal = []
+        sortedKey =copy.copy(self.dicoKey)
+        sortedKey.sort()
+        for element in sortedKey:
+            idx = self.dicoKey.index(element)
+            sortedVal.append(self.dicoValues[idx])
+        self.dicoKey = copy.copy(sortedKey)
+        self.dicoValues = copy.copy(sortedVal)
 
-legumes= {"oranges":22,"fraise":10}
-monDico = ArrangedDico(oranges=25, pommes=32)
-monDico = ArrangedDico(**legumes)
+if __name__ == '__main__':
+    legumes= {"oranges":22,"fraise":10}
+    monDico = ArrangedDico(oranges=25, pommes=32)
+    monDico = ArrangedDico(**legumes)
 
-print (monDico)
-del monDico["oranges"]
-print (" *** del testing: ",monDico)
+    print (monDico)
+    del monDico["oranges"]
+    print (" *** del testing: ",monDico)
 
-monDico = ArrangedDico(**legumes)
-print (" *** getitem testing: ")
-print (monDico)
-a=monDico["oranges"]
-print (a)
-print (" *** setitem testing: ")
-print (monDico)
-monDico["oranges"]=69
-print (monDico)
-monDico["bananes"]=25
-print (monDico)
+    monDico = ArrangedDico(**legumes)
+    print (" *** getitem testing: ")
+    print (monDico)
+    a=monDico["oranges"]
+    print (a)
+    print (" *** setitem testing: ")
+    print (monDico)
+    monDico["oranges"]=69
+    print (monDico)
+    monDico["bananes"]=25
+    print (monDico)
+    print (" *** __contains__: ")
+    a="bananes" in monDico
+    print(a)
+    print (" *** sort: ")
+    monDico.sort()
+    print (monDico)
