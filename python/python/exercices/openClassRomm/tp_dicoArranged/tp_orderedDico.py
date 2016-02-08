@@ -24,8 +24,12 @@ class ArrangedDico:
        idx = self.dicoKey.index(name)
        return self.dicoValues[idx]
     def __setitem__(self,name,value):
-       idx = self.dicoKey.index(name)
-       self.dicoValues[idx]=value
+        if (name in self.dicoKey):
+           idx = self.dicoKey.index(name)
+           self.dicoValues[idx]=value
+        else:
+           self.dicoValues.append(value)
+           self.dicoKey.append(name)
 
 legumes= {"oranges":22,"fraise":10}
 monDico = ArrangedDico(oranges=25, pommes=32)
@@ -40,7 +44,9 @@ print (" *** getitem testing: ")
 print (monDico)
 a=monDico["oranges"]
 print (a)
-print (" *** getitem testing: ")
+print (" *** setitem testing: ")
 print (monDico)
 monDico["oranges"]=69
+print (monDico)
+monDico["bananes"]=25
 print (monDico)
