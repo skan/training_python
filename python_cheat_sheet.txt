@@ -111,6 +111,8 @@ special methods
                            .start .stop .step. indices(longueur)
    iterateur         --> __iter__(self)             
                          __next__(self)
+   print(o)          --> __str__(self)
+   o                 --> __repr__(self)
    access attributes
       def __getattr__(self,nom):          # appelé si nom non trouvé en attribut existant
       def __getattribute__(self,nom):     # appelé dans tous les cas d’accès à nom
